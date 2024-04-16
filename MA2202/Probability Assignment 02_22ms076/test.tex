@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx} 
+\usepackage[margin=1in]{geometry} 
+\usepackage{enumitem} 
+\usepackage{xcolor} 
+\usepackage{mdframed}
+\usepackage{makeidx}
+\usepackage{hyperref}
+
+% Define a color for the box
+\definecolor{lightblue}{RGB}{173, 216, 230}
+
+% Define a framed box for notes
+\mdfdefinestyle{MyFrame}{%
+    backgroundcolor=lightblue,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+
+\makeindex
+
+\title{Probability Class Notes}
+\author{Shuvam Banerji Seal}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section*{Class Session 3: Introduction to Probability}
+
+
+\section{Axioms of Probability}
+
+\section*{Class Session 4: Further Probability Concepts\hfill \normalfont Date: January 2, 2024}
+\begin{mdframed}[style=MyFrame]
+\subsection{Definitions: {Contd.}}
+% ... (content remains the same)
+\end{mdframed}
+
+% ... (remaining content)
+
+\printindex
+
+
+%old solutions:::
+\begin{proof}
+    The question demands a series,  whose each term will serve as the probabilities for each odd and even no that can be chosen. For this we have the following constraints:
+    \begin{itemize}
+        \item $P(\textbf{even number}) + P(\textbf{odd number}) = 1$
+        \item Given Condition (a) and (b) 
+    \end{itemize}
+
+Now, it needs to be seen that we can fix the value of the convergence of the series chosen for both the even numbers and odd numbers such that the above statements gets satisfied. \\
+This means that, we have some $P_{raw}(\text{choosing \textbf{EVEN} Numbers})$ $:= \sum_{i=1}^{\infty} f_i < \infty$ \\
+and $P_{raw}(\text{choosing \textbf{ODD} Numbers})$ $:= \sum_{i=1}^{\infty} g_i < \infty$ \\
+
+The above construction will get us some finite real values for $P_{raw}(\text{choosing \textbf{EVEN} Numbers}) := C_E$ and $P_{raw}(\text{choosing \textbf{ODD} Numbers}) := C_O$ for some convergent series $f$ and  $g$ where, each term is represented by $f_i$ and $g_i$ respectively, ($i\in \mathbb{N}$) and that $f_i \neq g_i, \forall i$ . Now, note that $P_{raw}$ 's are not the probabilities of actually choosing the even or odd number but instead are still in the midst of cooking.
+
+Now, it needs to be noted that we can always create any finite value we want with the convergent series for $f_i$ and $g_i$ by dividing them with $C_E$ and $C_O$ respectively, and then multiplying with some real $\alpha$ and $\beta$ , according to our choice and can finally have something like the following :
+\[P(\text{choosing \textbf{EVEN} Numbers}) = \alpha \times \frac{\sum_{i=1}^{\infty} f_i}{C_E}\]
+
+
+
+    
+\end{proof}
+
+
+
+\end{document}

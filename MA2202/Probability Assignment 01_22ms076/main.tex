@@ -1,0 +1,353 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=0.8in]{geometry} % Adjusted margins for better readability
+\usepackage{enumitem} % Improved formatting for lists
+%\usepackage{xcolor} % Required for defining colors
+\usepackage{mdframed} % Required for framing the NOTE sections
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = gray
+}
+
+\usepackage{tocloft}
+
+\renewcommand{\cftsubsecfont}{\normalfont\hypersetup{linkcolor=purple}}
+\renewcommand{\cftsubsecafterpnum}{\hypersetup{linkcolor=blue}}
+
+% Define a color for the box
+\definecolor{lightblue}{RGB}{173, 216, 230}
+
+% Define a framed box for notes
+\mdfdefinestyle{MyFrame}{%
+    backgroundcolor=lightblue,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+
+\definecolor{lightorangered}{RGB}{255, 200, 173}
+
+% Define a framed box for notes
+\mdfdefinestyle{HW}{%
+    backgroundcolor=lightorangered,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+
+% Define a color for the box
+\definecolor{lightblue}{RGB}{173, 216, 230}
+
+% Define a framed box for notes
+\mdfdefinestyle{MyFrame}{%
+    backgroundcolor=lightblue,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+% Define a framed box for notes
+\mdfdefinestyle{MyFrame}{%
+    backgroundcolor=lightblue,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+%permuatation and comb
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+% Define a box for class session dates
+\usepackage[most]{tcolorbox}
+
+\NewTColorBox{classsessionbox}{O{}}{
+    colback=white,
+    colframe=lightblue,
+    arc=0pt,
+    outer arc=0pt,
+    leftrule=0pt,
+    rightrule=0pt,
+    toprule=0pt,
+    bottomrule=0pt,
+    boxrule=0pt,
+    right=0pt,
+    top=5pt,
+    bottom=5pt,
+    width=3cm, % Set the width as needed
+    title={\textbf{#1}},
+    fontupper=\small, % Adjust the font size as needed
+    halign=flush right, % Align to the right
+}
+
+
+\makeindex
+
+% Define a theorem style
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\title{Probability(MA2202) Assignment 01 Solutions}
+\author{Shuvam Banerji Seal (22MS076)\\ \small sbs22ms076@iiserkol.ac.in \\ GROUP - C}
+\date{January 2024}
+\date{\today} % Adjusted to include the current date
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Problem 01:}
+\begin{mdframed}[style = MyFrame]
+\subsection{Problem Statement}
+    Show that if you keep on throwing a fair die, the probability of eventual occurence of the outcome
+six is 1.
+\end{mdframed}
+
+\subsection{Solution:}
+\begin{proof}
+    In the given scenario, the sample space for rolling a die once, ($\Omega_{\text{rolling a die once}}$) is $(1,2,3,4,5,6)$\\
+The events will be noted as '$E_{\text{description for the event}}$'\\
+So, the event of getting a six be marked as $E_6$ \\
+ And the events of not getting a six be noted as $E_{\bar 6}$\\
+Let $P(\text{Eventually getting a six)} > 0$ be the probability of Eventually getting a six if a die is rolled. 
+    \[ \Omega_{\text{Eventually getting a six}} = \{ E_6,E_{\bar 6}E_6,E_{\bar 6}E_{\bar 6}E_6, \dots \} \cup \{E_{\bar 6}, E_{\bar 6}E_{\bar 6},E_{\bar 6}E_{\bar 6}E_{\bar 6}, \dots\} \]     
+    \[ P(E_6) = p =\frac{1}{6}, \quad P(E_{\bar 6}E_6) = (1-p)p = \frac{5}{6}.\frac{1}{6}, \quad P(E_{\bar 6}E_{\bar 6}E_6) = (1-p)^2p = \frac{5}{6}.\frac{5}{6}.\frac{1}{6},\quad \dots \]
+    \[\implies P( E_6,E_{\bar 6}E_6,E_{\bar 6}E_{\bar 6}E_6, \dots) = P(E_6) + P(E_{\bar 6}E_6) + \dots \]
+    \[ = p + (1-p)p + (1-p)^2p + \dots \]
+    \[ = p \sum_{n=0}^{\infty} (1-p)^n = \frac{p}{1-(1-p)} = \frac{\frac{1}{6}}{1-(1-\frac{1}{6})} = \frac{\frac{1}{6}}{1-\frac{5}{6}} =1\]
+
+    Hence, $\Omega_{\text{Eventually getting a six}} = 1$
+\end{proof}
+\vspace{0.5cm}
+\section{Problem 02:}
+\begin{mdframed}[style = MyFrame]
+\subsection{Problem Statement}
+\[
+\text{Suppose } (\Omega, \mathcal{E}, P) \text{ be a given probability space and } A_1, A_2, . . . , A_n \in \mathcal{E}. \text{ Then show that} \]
+\[
+P(A_1 \cup A_2 \cup . . . \cup A_n) = \sum_{i=1}^{n} P(A_i) -  \sum_{1\leq i < j\leq n} P(A_i \cap A_j) + ... + (-1)^{n-1}P(A_1\cap...\cap A_n)
+\]
+\end{mdframed}
+
+\subsection{Solution:}
+\begin{proof}
+    
+For events \(A_1, A_2, \ldots, A_n\) in a probability space \((\Omega, \mathcal{E}, P)\), the probability of their union is given by:
+\[ P(A_1 \cup A_2 \cup \ldots \cup A_n) = \sum_{i=1}^{n} P(A_i) - \sum_{1 \leq i < j \leq n} P(A_i \cap A_j) + \ldots + (-1)^{n-1}P(A_1 \cap \ldots \cap A_n) \]
+
+\textbf{Proof:}
+The method to do this proof will be induction.
+
+\textbf{Base Case (n = 2):}
+\[ P(A_1 \cup A_2) = P(A_1) + P(A_2) - P(A_1 \cap A_2) \]
+
+Since this was proved in the class, I am skipping the proof here.\\
+
+\textbf{Inductive Step:}
+Assume the inclusion-exclusion principle holds for \(n = k\):
+\[ P(A_1 \cup A_2 \cup \ldots \cup A_k) = \sum_{i=1}^{k} P(A_i) - \sum_{1 \leq i < j \leq k} P(A_i \cap A_j) + \ldots + (-1)^{k-1}P(A_1 \cap \ldots \cap A_k) \]
+
+Now, consider the case of \(n = k + 1\):
+\[\therefore P(A_1 \cup A_2 \cup \ldots \cup A_k \cup A_{k+1}) \]
+\[ = P(A_1 \cup A_2 \cup \ldots \cup A_k) + P(A_{k+1}) - P((A_1 \cup A_2 \cup \ldots \cup A_k) \cap A_{k+1}) \]
+\\
+The above was written using the principle of exclusion-inclusion only as in the base case.
+
+\[ = \sum_{i=1}^{k} P(A_i) + P(A_{k+1}) - \sum_{1 \leq i < j \leq k} P(A_i \cap A_j) + \ldots + (-1)^{k-1}P(A_1 \cap \ldots \cap A_k)\]\[ - P((A_1 \cap A_{k+1}) \cup (A_2 \cap A_{k+1}) \cup \dots \cup (A_k \cap A_{k+1}))\]
+
+Again expanding the last term shown here using the principle of inclusion and exclusion, we get,\\
+\[ = \sum_{i=1}^{k} P(A_i) + P(A_{k+1}) - \sum_{1 \leq i < j \leq k} P(A_i \cap A_j) + \ldots + (-1)^{k-1}P(A_1 \cap \ldots \cap A_k) \]
+\[ - \left( \sum_{i=1}^{k} P(A_i \cap A_{k+1}) + \ldots + (-1)^{k-1} P(A_1 \cap \ldots \cap A_k \cap A_{k+1}) \right) \]
+
+Now, notice that the terms involving \(A_{k+1}\) cancel out:
+\[ = \sum_{i=1}^{k} P(A_i) + P(A_{k+1}) - \sum_{1 \leq i < j \leq k} P(A_i \cap A_j) + \ldots + (-1)^{k} P(A_1 \cap \ldots \cap A_k) \]
+
+This completes the more general inclusion-exclusion principle holds for all positive integers \(n\).
+
+\end{proof}
+
+\section{Problem 03:}
+
+
+\begin{mdframed}[style = MyFrame]
+
+\subsection{Problem Statement:}
+\[
+    \text{To the choice of each } n \in \mathbb{N}, \]\[\text{ could you assign a probability } P(n) > 0 \text{ such that the following conditions hold?} \]
+    \[
+\text{(a) } P(m) \neq P(n) \text{ for all } m, n \in \mathbb{N}. 
+\]
+\[
+\text{(b) The probability of choosing an odd positive integer}\]
+\[
+\text{is the same as the probability of choosing an even positive integer.} \]
+\[
+\text{Justify your answer!}
+\]
+\end{mdframed}
+\subsection{Solution:}
+
+\begin{proof}
+  
+    \textbf{A take on Generalizing the problem, (For the exact example: please check after this):}
+    Consider the probability distribution defined by two sequences of positive real numbers \( \{f_i\}_{i=1}^{\infty} \) and \( \{g_i\}_{i=1}^{\infty} \) such that \( \sum_{i=1}^{\infty} f_i < \infty \) and \( \sum_{i=1}^{\infty} g_i < \infty \).
+
+    Define the probability distribution functions directly:
+    \[
+    P(n) = \alpha \cdot \frac{g_n}{\sum_{i=1}^{\infty} g_i} + \beta \cdot \frac{f_n}{\sum_{i=1}^{\infty} f_i}
+    \]
+    where $\alpha, \beta> 0$ are constants such that P(n) can modulated to $\frac{1}{2}$ for odd numbers and similarly for even numbers, and thus we can have WLOG \( \{f_i\}_{i=1}^{\infty} \) be defined as the probability of choosing each ODD number for a particular $i \in \mathbb{N}$.
+
+    \textbf{Condition (a):} For any distinct natural numbers \( m \) and \( n \), \( P(m) \neq P(n) \).
+    
+    This holds because the probability distribution functions involve distinct terms for odd and even numbers.
+
+    \textbf{Condition (b):} The probability of choosing an odd positive integer is the same as the probability of choosing an even positive integer.
+
+    \[
+    P(\text{odd}) = \alpha\frac{\sum_{n=1}^{\infty} g_n}{\sum_{i=1}^{\infty} g_i} = \frac{1}{2}
+    \]
+    \[
+    P(\text{even}) = \beta\frac{\sum_{n=1}^{\infty} f_n}{\sum_{i=1}^{\infty} f_i} = \frac{1}{2}
+    \]
+for some $\alpha, \beta \in \mathbb{R}$\\
+    Thus, the constructed probability distribution satisfies both conditions (a) and (b).
+
+
+
+    \textbf{An Example:}
+    Let's assign the probability of choosing even numbers sequentially be taken from the series ${f_n} = \frac{1}{2^{n+1}}$ ie for 2 the probability of choosing 2 be $\frac{1}{4}$, the probability of choosing 4 be $\frac{1}{8}$ and so on. Similarly, for the odd numbers we may take the probabilities from the terms of another convergent sequence, say $g_n = \frac{1}{3^n}$, ie probability alloted for 1 be $\frac{1}{3}$, for 3 be $\frac{1}{9}$, and so on. Hence we have,
+
+    \[
+    P(n) = 
+    \begin{cases}
+        \frac{1}{2^{i+1}} & \quad \text{if n is even then } i \in \mathbb{N}\\
+     \frac{1}{3^i} & \quad \text{if  n is odd then } i \in \mathbb{N}
+    \end{cases}
+    \]
+
+
+    Let's check if the given construction satisfies the provided conditions:
+    \\
+\textbf{(a)} For any two distinct positive integers \(m\) and \(n\), the probabilities \(P(m)\) and \(P(n)\) are different:
+
+- If both \(m\) and \(n\) are even:
+  $$ P(m) = \frac{1}{2^{a+1}} $$
+  $$ P(n) = \frac{1}{2^{b+1}} $$
+  Since \(a \neq b\), \(P(m) \neq P(n)\).
+
+- If both \(m\) and \(n\) are odd:
+  $$ P(m) = \frac{1}{3^a} $$
+  $$ P(n) = \frac{1}{3^b} $$
+  Since \(a \neq b\), \(P(m) \neq P(n)\).
+
+- If one is even and the other is odd, the probabilities are already different.
+
+\textbf{(b)} The probability of choosing an odd positive integer is the same as the probability of choosing an even positive integer:\\
+
+    \[
+    P(\text{Choosing an EVEN number}) = \sum_{n=1}^{\infty} \frac{1}{2^{n+1}} = \frac{\frac{1}{4}}{1 - \frac{1}{2}} = \frac{1}{2}
+    \]
+    \[
+P(\text{Choosing an ODD number}) = \sum_{n=1}^{\infty} \frac{1}{3^{n}} = \frac{\frac{1}{3}}{1 - \frac{1}{3}} = \frac{\frac{1}{3}}{\frac{2}{3}} =\frac{1}{2}
+\]
+
+
+
+
+
+
+
+
+\end{proof}
+
+\section{Problem 04:}
+\begin{mdframed}[style = MyFrame]
+    \subsection{Problem Statement:}
+    Seven students of IISER Kolkata went to participate in an event at IISER Mohali. They booked AC 3-tier tickets from Howrah to 
+ Chandigarh in Netaji Express, which has three AC 3-tier
+coaches. Every such coach has eight coupes (i.e. compartments), each coupe containing eight
+berths. If the berths were allocated randomly, find the probability of at least two among the
+seven students being allocated berths in the same coupe
+\end{mdframed}
+\subsection{Solution:}
+To find, \\
+\[
+P(\text{at least 2 students  are allotted the same compartment }) = \]
+\[1 - P(\text{no 2 students  are allotted the same compartment})
+\]
+Let's check, as each coach has eight compartments so, total number of compartments = $3 \times 8 = 24$
+\\
+Going by the norms of IISER Kolkata, let's allot equal important to each student (reality may differ), then the number of possible ways of allocating different coups to the students = $\perm{24}{7}$\\
+
+As there are 8 births in each coup, then for 7 students of equal value, allocation of birth can be done in $\perm{24}{7} \times 8^7$ waya, such that no two students are in the same coup. Again there are 192 births in all. So, the total number of ways of allocating a birth to 7 students is $\perm{192}{7}$ \\
+Then using the Classical definition of probability, the possible ways of having students in different compartments is $\frac{\perm{24}{7} \times 8^7}{\perm{192}{7}}$ .\\
+Finally, the probability of having at least 2 students in the same compartment is \\
+\[
+1 - P(\text{no 2 students  are allotted the same compartment})
+\]
+\[
+\implies 1 - \frac{\perm{24}{7} \times 8^7}{\perm{192}{7}}
+\]
+
+
+
+
+\section{Problem 05:}
+\begin{mdframed}[style = MyFrame]
+
+\subsection{Problem Statement:}
+
+    Carrom is played with a red, nine black and nine white coins (and a striker) on a square board
+with a pocket in each corner. If all these coins are scattered randomly (none of them being in
+any pocket) on a 29 inch × 29 inch carrom board, show that the probability of at least two of
+the coins being less than three inches apart is greater than 1/2.
+\end{mdframed}
+\subsection{Solution:}
+\begin{proof}
+    
+It's a 29 $\times$ 29 board meaning it's a square grid\\
+We can now divide it such that the diagonal of every square $\leq 3$, i.e., two coins in the square are at least 3 inches apart\\
+\[
+\ceil{29}{\frac{3}{\sqrt{2}}} = \ceil{13.67}{} = 14
+\]
+So, we can divide the board into $14 \times 14$ grid, where the length of the diagonal is $\frac{29}{14} \times \sqrt{2} = 2.92 \leq 3$\\
+Let $E_{2.92}$ denote the event where at least two coins are there whose mutual distance is $\leq 2.92$ inches, and $E_{3}$ denote the event where $\exists$ at least two cases whose mutual distance is $\leq 3$ inches, and $E_{same sq}$ denote the event where two coins are inside the same square of the $14 \times 14$ grid, which means 196 squares.\\
+Hence, it can be seen that $E_{same sq} \subseteq E_{2.92} \subseteq E_3$, so if we can show that $P(E_{same sq}) \geq \frac{1}{2}$, then we are done.\\
+Now, $P(E_{same sq}) \geq \frac{1}{2}$ if and only if it satisfies following relations (from Probabilistic Pigeon-Hole principle)
+\[
+20 - \frac{1}{2} \geq \sqrt{2 \cdot 196 \cdot \ln{\frac{1}{1 - \frac{1}{2}}} + \frac{1}{4}}
+\]
+\[
+\implies 400 -20 + \frac{1}{4} \geq 2 \cdot 196 \cdot \ln{\frac{1}{1 - \frac{1}{2}}} + \frac{1}{4}
+\]
+\[
+\implies
+\frac{380}{2 \cdot 196} \geq \ln2
+\]
+\[
+\implies
+0.969 \geq 0.693
+\]\\
+which is true. So, probability of at least two of the coins being less than 3 inches apart is greater than $\frac{1}{2}$
+
+
+\end{proof}
+\end{document}
+
+

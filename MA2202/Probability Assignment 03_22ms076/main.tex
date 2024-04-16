@@ -1,0 +1,387 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=0.7in]{geometry} % Adjusted margins for better readability
+\usepackage{enumitem} % Improved formatting for lists
+%\usepackage{xcolor} % Required for defining colors
+\usepackage{mdframed} % Required for framing the NOTE sections
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = gray
+}
+
+\usepackage{tocloft}
+
+\renewcommand{\cftsubsecfont}{\normalfont\hypersetup{linkcolor=purple}}
+\renewcommand{\cftsubsecafterpnum}{\hypersetup{linkcolor=blue}}
+
+% Define a color for the box
+\definecolor{lightblue}{RGB}{173, 216, 230}
+
+% Define a framed box for notes
+\mdfdefinestyle{MyFrame}{%
+    backgroundcolor=lightblue,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+
+\definecolor{lightorangered}{RGB}{255, 200, 173}
+
+% Define a framed box for notes
+\mdfdefinestyle{HW}{%
+    backgroundcolor=lightorangered,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+
+% Define a color for the box
+\definecolor{lightblue}{RGB}{173, 216, 230}
+
+% Define a framed box for notes
+\mdfdefinestyle{MyFrame}{%
+    backgroundcolor=lightblue,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+% Define a framed box for notes
+\mdfdefinestyle{MyFrame}{%
+    backgroundcolor=lightblue,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+%permuatation and comb
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+% Define a box for class session dates
+\usepackage[most]{tcolorbox}
+
+\NewTColorBox{classsessionbox}{O{}}{
+    colback=white,
+    colframe=lightblue,
+    arc=0pt,
+    outer arc=0pt,
+    leftrule=0pt,
+    rightrule=0pt,
+    toprule=0pt,
+    bottomrule=0pt,
+    boxrule=0pt,
+    right=0pt,
+    top=5pt,
+    bottom=5pt,
+    width=3cm, % Set the width as needed
+    title={\textbf{#1}},
+    fontupper=\small, % Adjust the font size as needed
+    halign=flush right, % Align to the right
+}
+
+
+\makeindex
+
+% Define a theorem style
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\title{Probability(MA2202) Assignment 03 Solutions}
+\author{Shuvam Banerji Seal (22MS076)\\ \small sbs22ms076@iiserkol.ac.in \\ GROUP - C}
+%\date{January 2024}
+\date{\today} % Adjusted to include the current date
+
+\begin{document}
+
+\maketitle
+%\tableofcontents
+
+\section{Problem 01:}
+\begin{mdframed}[style = MyFrame]
+\subsection{Problem Statement}
+    
+(a) Let $(\Omega, \mathcal{E}, P)$ be a probability space and let $A \subset \Omega$. Define $X : \Omega \to \mathbb{R}$ by
+\[
+X(\omega) = 
+    \begin{cases} 
+        1 & \text{if } \omega \in A \\
+        0 & \text{otherwise}.
+    \end{cases}
+\]
+In which of the following cases is $X$ a random variable? Justify your answer!
+\begin{enumerate}
+    \item $A \in E$
+    \item $A\notin E$
+\end{enumerate}
+
+(b) Let $(\Omega, E, P)$ be a probability space with $\Omega = {1,2,3,4,5}$ and $\mathcal E = {\emptyset,\Omega,\lbrace 1\rbrace,\lbrace 2,3,4,5\rbrace}$. Define $X : \Omega \to R$ by
+$X(\omega) = \omega + 1$ for all $\omega \in \Omega$. Is X a random variable? Justify your answer!
+
+\end{mdframed}
+
+\subsection{Solution:}
+\textbf{Part : A $\to$ i}\\
+By, the axiomatic approach of probability if $A \in \epsilon \implies A^c \in \epsilon \implies \Omega \in \epsilon$. Let $J \subseteq R$ denote an interval of $\mathbb R$ st,\\
+\[
+X^{-1}(J) = 
+    \begin{cases} 
+        A & \text{, if } 1 \in J, 0 \notin J \\
+        A^c & \text{, if } 1 \notin J, 0 \in J \\
+        \Omega & \text{, if } 1,0 \in J 
+    \end{cases}
+\]
+So, in each case we have $X^{-1}(J) \subseteq \epsilon$\\
+$\implies X$ is a random variable. 
+
+\textbf{Part : A $\to$ ii}\\
+If $A \notin \epsilon$, we claim that $X$ is not a random variable, because $X^{-1}(1) =A \notin \epsilon $, which contradicts the property of the random variable.
+
+
+\textbf{Part : B}\\
+\[
+X(1)=2
+\]
+\[
+X(2)=3
+\]
+\[
+X(3)=4
+\]
+\[
+X(4)=5
+\]
+\[
+X(5)=6
+\]
+So, $X^{-1}(6) = 5 \notin \epsilon$, which contradicts the property of random variable. So, $X$ is not a random variable.
+
+
+
+
+\vspace{0.5cm}
+\section{Problem 02:}
+\begin{mdframed}[style = MyFrame]
+\subsection{Problem Statement}
+\text{Let } X \text{ be a random variable defined on } \{1,2,\ldots,10\} \text{ with PMF } f(x) = ax+b \text{ and expectation } 7.\\
+\text{Find } a \text{ and } b.
+
+\end{mdframed}
+
+\subsection{Solution:}
+
+Let $X$ be a random variable defined on $\{1,2,\ldots,10\}$ with PMF $f(x) = ax+b$ and expectation $7$. Find $a$ and $b$.
+
+The expectation (mean) of a discrete random variable is given by:
+\[ E(X) = \sum_{x} x \cdot f(x) \]
+
+In this case, the random variable $X$ is defined on the set $\{1,2,\ldots,10\}$ with probability mass function (PMF) $f(x) = ax + b$. So, the expectation is:
+\[ E(X) = \sum_{x=1}^{10} x \cdot (ax + b) \]
+
+Now, let's calculate this:
+\[ E(X) = a\sum_{x=1}^{10} x^2 + b\sum_{x=1}^{10} x \]
+
+The summation formulas for $\sum_{x=1}^{n} x$ and $\sum_{x=1}^{n} x^2$ are:
+\[ \sum_{x=1}^{n} x = \frac{n(n+1)}{2} \]
+\[ \sum_{x=1}^{n} x^2 = \frac{n(n+1)(2n+1)}{6} \]
+
+Applying these formulas, we get:
+\[ E(X) = a\left(\frac{10(10+1)(2 \cdot 10+1)}{6}\right) + b\left(\frac{10(10+1)}{2}\right) \]
+
+Given that $E(X) = 7$, we can set up the equation:
+\[ 7 = a\left(\frac{10(10+1)(2 \cdot 10+1)}{6}\right) + b\left(\frac{10(10+1)}{2}\right) \]
+
+
+Now, the sum of probabilities is given by:
+\[ \sum_{x=1}^{10} f(x) = 1 \]
+
+Substituting $f(x) = ax + b$, we get:
+\[ a\left(\frac{10(10+1)}{2}\right) + b(10) = 1 \]
+
+Now, solve the system of equations:
+\[
+\begin{align*}
+a\left(\frac{10(10+1)}{2}\right) + b(10) &= 1 \\
+7 &= a\left(\frac{10(10+1)(2 \cdot 10+1)}{6}\right) + b\left(\frac{10(10+1)}{2}\right)
+\end{align*}
+\]
+
+Then by solving, we get the  values for $a$ and $b$ as:
+\[ a = \frac{1}{55} \]
+\[ b = 0\]
+
+\section{Problem 03:}
+
+
+
+\begin{mdframed}[style = MyFrame]
+
+\subsection{Problem Statement:}
+\[
+\text{For what value of the constant } c, \text{ the real valued function } f : \mathbb{R} \rightarrow \mathbb{R} \text{ given by}\]
+\[
+f(x) = \frac{c}{1 + (x - \theta)^2}\\
+\text{where } \theta \text{ is a real parameter, is a PDF of random variable  X? }
+\]
+
+
+\end{mdframed}
+\subsection{Solution:}
+For what value of the constant $c$, the real-valued function $f : \mathbb{R} \rightarrow \mathbb{R}$ given by
+\[
+f(x) = \frac{c}{1 + (x - \theta)^2}
+\]
+where $\theta$ is a real parameter, is a probability density function (PDF) of the random variable $X$?
+
+To check if $f(x)$ is a PDF, it must satisfy two conditions:
+\begin{enumerate}
+  \item $f(x) \geq 0$ for all $x$ in its domain.
+  \item $\int_{-\infty}^{\infty} f(x) \,dx = 1$
+\end{enumerate}
+
+The given function is $f(x) = \frac{c}{1 + (x - \theta)^2}$.
+
+\begin{enumerate}
+  \item $f(x)$ is always positive because the numerator $c$ is positive and the denominator $1 + (x - \theta)^2$ is also positive.
+  \item To satisfy the second condition, the integral of $f(x)$ over its entire domain must be equal to 1:
+  \[
+  \int_{-\infty}^{\infty} \frac{c}{1 + (x - \theta)^2} \,dx
+  \]
+  To evaluate this integral,
+  \[
+    \int_{-\infty}^{\infty} \frac{c}{(x - \theta)^2 + 1} \, dx
+\]
+
+\textbf{Substitute} \(u = x - \theta \Rightarrow du = dx\) 
+\[
+= \int_{-\infty}^{\infty} \frac{c}{u^2 + 1} \, du
+\]
+
+\textbf{Now solving:}
+\[
+= \int_{-\infty}^{\infty} \frac{1}{u^2 + 1} \, du
+\]
+ 
+\textbf{This is a standard integral:}
+\[ 
+= c \arctan(u)|_{-\infty}^{\infty}
+\]
+Now putting the limits of the integral we get,
+
+\[
+  \int_{-\infty}^{\infty} \frac{c}{1 + (x - \theta)^2} \,dx = {\pi}c
+  \]
+
+  
+  For the integral to be finite and equal to 1, $c$ must be ${\frac{1}{\pi}}$.
+\end{enumerate}
+
+Therefore, for the given function $f(x) = \frac{c}{1 + (x - \theta)^2}$ to be a PDF of random variable $X$, the constant $c$ must be ${\frac{1}{\pi}}$.
+
+
+\section{Problem 04:}
+\begin{mdframed}[style = MyFrame]
+    \subsection{Problem Statement:}
+   Let $p \in [0,1]$, $a,b \in \mathbb{R}$ with $a > b$ and let $X$ be a random variable such that $P(X = a) = p$ and $P(X = b) = 1 - p$.
+
+Find the expectation and variance of $\frac{X-b}{b-a}$.
+
+\end{mdframed}
+\subsection{Solution:}
+
+Let's first find the expectation of the given expression:\\
+
+\[
+E(\frac{X-b}{b-a}) = \sum \frac{x-b}{b-a}P(X=x) = \frac{E(X)}{b-a} - \frac{b}{b-a} = \frac{1}{b-a} [ap + b - bp] - \frac{b}{b-a} = -p
+\]
+\[
+Var(\frac{X-b}{b-a}) = E((\frac{X-b}{b-a}- (-p))^2)  = \sum (\frac{(x-b)}{(b-a)}-(-p))^2 \cdot (P(X=x)) 
+\]
+ \[
+  = (\frac{(a-b)}{(b-a)}+p )^2 \cdot P(X=a) + (\frac{b-b}{(a-b)}+p)^2 \cdot P(X=b) 
+
+ \]
+
+\[
+= (1-p)^2 p + p^2 (1-p) = p + p^3 - 2p^2 + p^2 -p^3 = p - p^2 = p (1-p)
+\]
+
+
+\section{Problem 05:}
+\begin{mdframed}[style = MyFrame]
+%\end{comment}
+\subsection{Problem Statement:}
+
+A bag contains five coins, two of which are made of gold and the rest are made of silver. Consider the random experiment in which the coins are drawn out of the bag randomly, one after another, without replacement. Let $X$ denote the number of draws until the last gold coin is drawn. Find the PMF, the CDF and the expectation of the random variable $X$.
+
+
+\end{mdframed}
+\subsection{Solution:}
+
+
+First, we need to find the possible values of $X$. Since there are two gold coins in the bag, the last gold coin can be drawn on the second, third, fourth or fifth draw. Therefore, the range of $X$ is $\{2, 3, 4, 5\}$.
+
+Next, we need to find the probability of each value of $X$. We can use the following formula to calculate the probability of drawing $k$ gold coins and $n-k$ silver coins in $n$ draws without replacement:
+
+$$P(X = k) = \frac{\phi \times \binom{G}{k} \binom{S}{n-k}}{\prod_{n=1}^N \binom{N}{n} \xleftarrow{} } \text{This is a dynamic product where the value of N also reduced for each iteration}$$
+
+where $G$ is the number of gold coins in the bag, $S$ is the number of silver coins in the bag, and $N$ is the total number of coins in the bag. In our case, $G = 2$, $S = 3$, and $N = 5$, and $\phi $ is the number of cases possible for each set of outcomes.
+
+Using this formula, we can find the PMF of $X$ as follows:
+
+$$P(X = 2) = 1 \times \frac{\binom{2}{1} \binom{1}{1}}{\binom{5}{1}. \binom{4}{1}} = \frac{2 \times 1}{20} = \frac{1}{10}$$
+
+$$P(X = 3) = 2 \times \frac{\binom{2}{1} \binom{1}{1}\binom{3}{1}}{\binom{5}{1}\binom{4}{1}\binom{3}{1}} = \frac{2 \times 2 \times 3}{60} = \frac{2}{10}$$
+
+$$P(X = 4) = 3 \times \frac{\binom{2}{1} \binom{3}{1} \binom{2}{1} \binom{1}{1}}{\binom{5}{1}\binom{4}{1}\binom{3}{1}\binom{2}{1}} = \frac{3 \times 2 \times 3 \times 2 }{120} = \frac{3}{10}$$
+
+$$P(X = 5) = 4 \times \frac{\binom{2}{1} \binom{3}{1} \binom{2}{1} \binom{1}{1} \binom{1}{1}}{\binom{5}{1}\binom{4}{1}\binom{3}{1}\binom{2}{1} \binom{1}{1}} = \frac{4 \times 2 \times 3 \times 2 \times 1 \times 1 }{120} = \frac{4 }{10}$$
+
+
+To find the CDF of $X$, we need to find the probability of $X$ being less than or equal to a given value. We can use the following formula to calculate the CDF of $X$:
+
+$$F(x) = P(X \leq x) = \sum_{k=2}^{x} P(X = k)$$
+
+Using this formula, we can find the CDF of $X$ as follows:
+
+\[
+CDF(x) = \left\{
+\begin{array}{ll}
+0 & \text{if } x<2 \\
+\frac{1}{10} & \text{if } 2 \leq x < 3 \\
+\frac{1}{10} + \frac{2}{10} & \text{if } 3 \leq x < 4 \\
+\frac{1}{10} + \frac{2}{10} + \frac{3}{10} & \text{if } 4 \leq x < 5 \\
+\frac{1}{10} + \frac{2}{10} + \frac{3}{10} + \frac{4}{10}=1 & \text{if } x \geq 5 \\
+\end{array}
+\right.
+\]
+
+
+To find the expectation of $X$, we need to find the weighted average of the possible values of $X$. We can use the following formula to calculate the expectation of $X$:
+
+$$E(X) = \sum_{x=2}^{5} x P(X = x)$$
+
+Using this formula, we can find the expectation of $X$ as follows:
+
+$$E(X) = 2 \times \frac{1}{10} + 3 \times \frac{2}{10} + 4 \times \frac{3}{10} + 5 \times \frac{4}{10} = 4$$
+\[
+\therefore E(X) =4
+\]
+
+\end{document}
+
+

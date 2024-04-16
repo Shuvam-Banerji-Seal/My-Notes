@@ -1,0 +1,541 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=0.7in]{geometry} % Adjusted margins for better readability
+\usepackage{enumitem} % Improved formatting for lists
+%\usepackage{xcolor} % Required for defining colors
+\usepackage{mdframed} % Required for framing the NOTE sections
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = gray
+}
+
+\usepackage{tocloft}
+
+\renewcommand{\cftsubsecfont}{\normalfont\hypersetup{linkcolor=purple}}
+\renewcommand{\cftsubsecafterpnum}{\hypersetup{linkcolor=blue}}
+
+% Define a color for the box
+\definecolor{lightblue}{RGB}{173, 216, 230}
+
+% Define a framed box for notes
+\mdfdefinestyle{MyFrame}{%
+    backgroundcolor=lightblue,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+
+\definecolor{lightorangered}{RGB}{255, 200, 173}
+
+% Define a framed box for notes
+\mdfdefinestyle{HW}{%
+    backgroundcolor=lightorangered,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+
+% Define a color for the box
+\definecolor{lightblue}{RGB}{173, 216, 230}
+
+% Define a framed box for notes
+\mdfdefinestyle{MyFrame}{%
+    backgroundcolor=lightblue,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+% Define a framed box for notes
+\mdfdefinestyle{MyFrame}{%
+    backgroundcolor=lightblue,
+    roundcorner=5pt,
+    frametitlerule=true,
+    frametitlebackgroundcolor=white,
+    frametitlerulecolor=lightblue,
+    innertopmargin=\topskip,
+}
+%permuatation and comb
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+% Define a box for class session dates
+\usepackage[most]{tcolorbox}
+
+\NewTColorBox{classsessionbox}{O{}}{
+    colback=white,
+    colframe=lightblue,
+    arc=0pt,
+    outer arc=0pt,
+    leftrule=0pt,
+    rightrule=0pt,
+    toprule=0pt,
+    bottomrule=0pt,
+    boxrule=0pt,
+    right=0pt,
+    top=5pt,
+    bottom=5pt,
+    width=3cm, % Set the width as needed
+    title={\textbf{#1}},
+    fontupper=\small, % Adjust the font size as needed
+    halign=flush right, % Align to the right
+}
+
+
+\makeindex
+
+% Define a theorem style
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\title{Probability(MA2202) Assignment 04 Solutions}
+\author{Shuvam Banerji Seal (22MS076)\\ \small sbs22ms076@iiserkol.ac.in \\ GROUP - C}
+%\date{January 2024}
+\date{\today} % Adjusted to include the current date
+
+\begin{document}
+
+\maketitle
+%\tableofcontents
+
+\section{Problem 01:}
+\begin{mdframed}[style = MyFrame]
+\subsection{Problem Statement}
+    Let \(X, Y,\) and \(Z\) be iid positive random variables defined over the same sample space. Show that
+\[
+E\left( \frac{2X + Z}{X + Y + Z} \right)
+\]
+exists and determine its value.
+
+\end{mdframed}
+
+\subsection{Solution:}
+We want to show that:
+
+\begin{enumerate}
+    \item $\frac{2X + Z}{X + Y + Z}$ is almost surely finite, which implies the expectation exists.
+    \item The expectation's value is indeed 1.
+\end{enumerate}
+
+\textbf{1. Almost sure finiteness:}
+
+Since $X$, $Y$, and $Z$ are positive random variables, with probability 1 (denoted as $\mathbb{P}$):
+
+$$X > 0, \quad Y > 0, \quad Z > 0$$
+
+Adding these inequalities, we get:
+
+$$X + Y + Z > 0$$
+\begin{comment}
+    Also note that, 
+\[
+\frac{2X +Z}{X + Y+Z} = 2 \frac{X}{X+Y+Z} + \frac{Z}{X+Y+Z}
+\]
+Since all are IID,
+\[
+\frac{X}{X+Y+Z} , \frac{Z}{X+Y+Z} \leq 1
+\]
+
+
+Therefore, for any realization $(x, y, z)$ in the sample space, the denominator $X + Y + Z$ is strictly positive. As the numerator $2X + Z$ is a sum of non-negative terms, it's also non-negative. The resulting fraction, $\frac{2X + Z}{X + Y + Z}$, is therefore finite for all realizations. This implies it's almost surely finite, ie, 
+\[
+\therefore  0 \leq  \frac{2X +Z}{X + Y+Z} \leq 2 + 1 = 3
+\]
+
+\end{comment}
+
+\textbf{2. Expectation's value:}
+\textbf{Discrete Case:\\
+$\because X,Y,Z$}  are iid
+\[
+E\left( \frac{X}{X + Y + Z} \right) = \sum_{\substack{X,Y,Z \\ P(X=x, Y=y, Z=z)>0}} \frac{x}{x + y + z} P(X=x, Y=y, Z=z)
+
+\]
+
+
+Now, $\frac{x}{x + y + z} \in (0,1), \forall (x,y,z)$  as $X,Y, Z$ are positive random variables.
+\[
+\therefore E\left( \frac{X}{X + Y + Z} \right) = \sum_{\substack{X,Y,Z \\ P(X=x, Y=y, Z=z)>0}} \frac{x}{x + y + z} P(X=x, Y=y, Z=z)
+\]
+\[
+< \sum_{\substack{X,Y,Z \\ P(X=x, Y=y, Z=z)>0}}  P(X=x, Y=y, Z=z) = \boxed{1}
+\]
+$\therefore E\left( \frac{X}{X + Y + Z} \right) $ exists.\\
+
+\textbf{Continuous Case:}\\
+\[
+E\left( \frac{X}{X + Y + Z} \right) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \frac{x}{x + y + z} f_{\tilde{X}} (x + y + z) dx dy dz \quad \text{where $\tilde{X} = (X + Y + Z)$ } 
+\]
+Now, as $\frac{x}{x + y + z} \in (0,1), \forall (x,y,z) \in \mathbb R$ and   $X,Y, Z$ are positive random variables,
+
+\[
+E\left( \frac{X}{X + Y + Z} \right) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \frac{x}{x + y + z} f_{\tilde{X}} (x + y + z) dx dy dz < \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_{\tilde{X}} (x + y + z) dx dy dz = \boxed{1}
+\]
+
+$\therefore E\left( \frac{X}{X + Y + Z} \right) $ exists.\\
+
+SImilarly,  $ E\left( \frac{Y}{X + Y + Z} \right) $ exists. $ E\left( \frac{Z}{X + Y + Z} \right) $ exists.\\
+
+$\therefore 2 E\left( \frac{X}{X + Y + Z} \right) + E\left( \frac{Z}{X + Y + Z} \right) = E\left( \frac{2X + Z}{X + Y + Z} \right)  $ exists.\\
+
+SImilarly,  $ E\left( \frac{2Y + X}{X + Y + Z} \right) $ exists. $ E\left( \frac{2Z + Y}{X + Y + Z} \right) $ exists.\\
+
+Thus, 
+\[
+E\left( \frac{2X + Z}{X + Y + Z} \right) + E\left( \frac{2Y + X}{X + Y + Z} \right) + E\left( \frac{2Z + Y}{X + Y + Z} \right) = E(3) = \boxed{3}
+\]
+
+Since, $X,Y, Z$ are iid, so,
+
+\[
+E\left( \frac{2X + Z}{X + Y + Z} \right) = E\left( \frac{2Y + X}{X + Y + Z} \right) = E\left( \frac{2Z + Y}{X + Y + Z} \right)
+\]
+\[
+\therefore E\left( \frac{2X + Z}{X + Y + Z} \right) = 3 \times \frac{1}{3} = \boxed{1}
+\]
+
+
+\begin{comment}
+    Due to the almost sure finiteness, we can now take the expectation:
+
+\begin{align*}
+E \left[ \frac{2X + Z}{X + Y + Z} \right] &= \int_{\Omega} \frac{2X(\omega) + Z(\omega)}{X(\omega) + Y(\omega) + Z(\omega)} dP(\omega) \\
+&= \int_{\Omega} \frac{2(X(\omega) + \frac{Z(\omega)}{2})}{X(\omega) + Y(\omega) + Z(\omega)} dP(\omega) \\
+&= \int_{\Omega} \frac{2 - 2 \cdot \frac{Z(\omega)}{2(X(\omega) + Y(\omega) + Z(\omega))}}{1} dP(\omega) \\
+&= 2 - 2E \left[ \frac{Z(\omega)}{2(X(\omega) + Y(\omega) + Z(\omega))} \right] \tag{1}
+\end{align*}
+
+Since $X$, $Y$, and $Z$ are independent and identically distributed (i.i.d.), their expectations are equal:
+
+$$E[X] = E[Y] = E[Z] = \mu$$
+
+Substituting back into Equation (1):
+
+\begin{align*}
+E \left[ \frac{2X + Z}{X + Y + Z} \right] &= 2 - 2E \left[ \frac{Z(\omega)}{2(X(\omega) + Y(\omega) + Z(\omega))} \right] \\
+&= 2 - 2E \left[ \frac{\mu}{2(3 \mu)} \right] \\
+&= 2 - 2 \cdot \frac{\mu}{6 \mu} \\
+&= \boxed{1}
+\end{align*}
+
+Therefore, we have shown that the expectation of $\frac{2X + Z}{X + Y + Z}$ exists and is equal to 1.
+\end{comment}
+
+
+\vspace{0.5cm}
+\section{Problem 02:}
+\begin{mdframed}[style = MyFrame]
+\subsection{Problem Statement}
+Provide examples of a discrete and a continuous random variable such that their expectations do not exist.
+
+\end{mdframed}
+
+\subsection{Solution:}
+\textbf{Discrete Case:}
+\begin{comment}
+    
+Here, we can have a discrete random variable $X$, such that the following is the probability mass function, 
+\[
+f(x) = \frac{c}{x^2}
+\]
+\end{comment}
+
+
+\textbf{1. Discrete Random Variable:}
+
+Consider $X: \Omega \to \mathbb R$ , be a discrete random variable
+\[
+P(X=n) = \begin{cases}
+        \frac{1}{cn^2} & \text{if } n \in \mathbb{N}, \text{c be any constant, it's value is shown later}\\
+        0 & \text{Otherwise } 
+    \end{cases}
+\]
+Clearly, $X$ has a valid PMF,
+\[
+\because \sum_{n=1}^{\infty} P(X=n) = 1
+\]
+\[
+\therefore c = \frac{6}{\pi^2}
+\]
+Now checking the expectation value if they exists ie the $\sum_{n=1}^{\infty} |nP(X=n)|$ converges..
+But we see that,
+\[
+\sum_{n=1}^{\infty} |nP(X=n)| = \sum_{n=1}^{\infty} n \cdot \frac{1}{cn^2} = \frac{1}{c}\sum_{n=1}^{\infty} \frac{1}{n} \quad \dots diverges
+\]
+So, the expectation doesn't exist in the sense that it never attains a finite value. \\
+
+
+\textbf{2. Continuous Random Variable:}
+
+Consider $X: \Omega \to \mathbb R$ , be a continuous random variable, whose PDF is given by $f_X : \mathbb R \to \mathbb R_{\geq 0}$
+
+
+\[
+f_X(X) = 
+        \frac{c}{1 + x^2} \quad \text{c be any constant, its value is shown later}
+\]
+
+Clearly, $X$ has a valid PDF, such that
+\[
+\because \int_{-\infty}^{\infty} f_X (x) dx = 1
+\]
+
+\[
+\therefore c = \frac{1}{\pi}
+\]
+Now checking the expectation if they exist,
+\[
+E(X) = \int_{-\infty}^{\infty} |xf_X (x)| dx = \frac{1}{2\pi} \int_{-\infty}^{\infty}|\frac{c}{1 + x^2} |dx = \frac{1}{2\pi} \ln{|(1+x^2)|}|_{-\infty}^{\infty} \quad \dots diverges
+\]
+So, the expectation doesn't exist in the sense that it never attains a finite value. 
+
+\section{Problem 03:}
+
+
+\subsection{Problem Statement:}
+\begin{mdframed}[style = MyFrame]
+\[
+\text{Show that if the } n\text{-th moment exists for some } n \in \mathbb{N}, \text{ then so does the } m\text{-th moment for all } m \in \{1,2,\ldots,n\}.
+\]
+
+\end{mdframed}
+\subsection{Solution:}
+
+\begin{proof}
+    
+
+Since the nth moment exists, ie $E(X^n)$ exists, then $E(|X|^n)$ exists as well. (Refer to Professor's email that was sent 10 hours before mid-sem exam). \\
+\textbf{Claim:} $E(|X|^m)$ exists $\implies$ the existence of $E(X^m)$ for $ m \in \{1,2,\ldots,n\} $ .\\
+\textbf{Discrete Case:}\\
+$E(|X|^m)$ \\
+\[
+\sum_{x \in D} |x|^m P(X=x) \quad \quad \text{where, D is the discrete set such that for $x \in D \implies P(X=x)>0$  }
+
+\]
+\[
+= \sum_{\substack{x \in D \\ |x| \leq 1}} |x|^m P(X=x) + \sum\limits_{\substack{ x \in D \\ |x|>1}} |x|^m P(X=x) \quad \dots (i)
+\]
+But,
+
+\[
+\sum_{\substack{x \in D \\ |x| \leq 1}} |x|^m P(X=x) \leq \sum_{\substack{x \in D \\ |x| \leq 1}} P(X=x)
+\]
+and,
+
+\[
+\sum_{\substack{x \in D \\ |x| \leq 1}} |x|^m P(X=x) \leq \sum_{\substack{x \in D \\ |x| \leq 1}} |x|^n P(X=x) \quad \quad [\because n \geq m]
+\]
+\[
+\leq E(|X|^n < \infty)
+\]
+
+\[
+\implies E(|X|^m) \leq 1 + E(|X|^n) < \infty
+\]
+\[
+\implies E(|X|^m) \quad exists
+\]
+\[
+E(|X|^m) \quad exists
+\]
+
+
+\textbf{Continuous Case:}\\
+Let $f(x)$ be the PDF, then 
+\[
+E(|X|^m ) = \int_{-\infty}^{\infty} |x|^m f(x) dx
+
+\]
+\[
+= \int_{-\infty}^{-1} |x|^m f(x) dx + \int_{-1}^{1} |x|^m f(x) dx + \int_{1}^{\infty} |x|^m f(x) dx
+\]
+Now, similar to the discrete case 
+\[
+\int_{-1}^{1} |x|^m f(x) dx \leq \int_{-1}^{1} f(x) dx \leq 1
+\]
+and, 
+\[
+\int_{-\infty}^{-1} |x|^m f(x) dx + \int_{1}^{\infty} |x|^m f(x) dx \leq \int_{-\infty}^{-1} |x|^n f(x) dx + \int_{1}^{\infty} |x|^n f(x) dx
+\]
+\[
+\leq E(|X|^n) < \infty
+\]
+\[
+\implies E(|X|^m) \leq 1 + E(|X|^n) < \infty
+\]
+\[
+\implies E(|X|^m) \quad exists
+\]
+\[
+E(|X|^m) \quad exists
+\]
+
+
+
+
+
+
+\end{proof}
+
+\section{Problem 04:}
+\begin{mdframed}[style = MyFrame]
+\subsection{Problem Statement:}
+
+\begin{center}
+
+\textbf{Recall that for two random variables $X$ and $Y$, we define}
+\begin{equation}
+\text{Cov}(X, Y) := E(XY) - E(X)E(Y).
+\end{equation}
+\textbf{(i)} Show that $\text{Cov}(X, Y) = E((X - E(X))(Y - E(Y))$.
+\textbf{(ii)} For random variables $X_1, X_2, ..., X_n$ and $Y_1, Y_2, ..., Y_m$, show that
+\begin{equation}
+\text{Cov} \left( \sum_{i=1}^n a_i X_i, \sum_{j=1}^m b_j Y_j \right) = \sum_{i=1}^n \sum_{j=1}^m a_i b_j \text{Cov}(X_i, Y_j)
+\end{equation}
+
+for all $a_i, b_j \in \mathbb{R}$.
+
+\textbf{(iii)} Conclude from the above that for random variables $X_1, X_2, ..., X_n$, we have
+
+\begin{equation}
+\text{Var} \left( \sum_{i=1}^n a_iX_i \right) = \sum_{i=1}^n a_i^2 \text{Var}(X_i) + 2 \sum_{1 < i < j < n} a_ia_j\text{Cov}(X_i, X_j)
+\end{equation}
+
+for all $a_i \in \mathbb{R}$.
+
+\end{center}   
+\end{mdframed}
+\subsection{Solution:}
+\textbf{Part : i}\\
+\begin{proof}
+    Since the covariance of $X$ and $Y$, are existing then both their expectations should exist.
+    
+    \[
+    LHS =  E((X - E(X))(Y - E(Y))
+    \]
+    \[
+    = E(XY - XE(Y) - YE(X) + E(X)E(Y))
+    \]
+    Note that, $E(X)$ ans $E(Y)$ are constants.
+    
+\[
+ = E(XY) - E(XE(Y)) - E(YE(X)) + E(E(X)E(Y)) \quad \text{By the linearity property}
+\]
+\[
+= E(XY) - E(X)E(Y) - E(Y)E(X) + E(X)E(Y) \quad \because [E(E(X)) = E(X), \text{and Linearity property}]
+\]
+\[
+E(XY) - E(X)E(Y) = \text{Cov}(X, Y) = RHS
+\]
+
+
+
+    
+\end{proof}
+
+
+
+
+\textbf{Part : ii}
+\begin{proof}
+    First, let's prepare all the ingredients first,
+    \[
+    E((\sum_{i=1}^n a_iX_i)( \sum_{j=1}^m  b_jY_j))
+    \]
+    \[
+    = E(\sum_{i=1}^n \sum_{j=1}^m a_i b_j (X_i Y_j))
+    \]
+    \[
+    = \sum_{i=1}^n \sum_{j=1}^m a_i b_j E(X_i Y_j)
+    \]
+    
+    Now,
+    \[
+    \text{E} ( \sum_{i=1}^n a_i X_i)\cdot  E( \sum_{j=1}^m b_j Y_j)
+    \]
+    \[
+    =     \sum_{i=1}^n a_i E(X_i)\cdot   \sum_{j=1}^m b_j E(Y_j)
+    \]
+
+    \[
+        = \sum_{i=1}^n \sum_{j=1}^m a_i b_j E(X_i) \cdot E( Y_j)
+    \]
+
+
+    Finally,
+    \[
+    \text{Cov} \left( \sum_{i=1}^n a_i X_i, \sum_{j=1}^m b_j Y_j \right)
+    \]
+    
+    \[
+     E((\sum_{i=1}^n a_iX_i)( \sum_{j=1}^m  b_jY_j)) -     \text{E} ( \sum_{i=1}^n a_i X_i)\cdot  E( \sum_{j=1}^m b_j Y_j)
+
+    \]
+
+\[
+    = \sum_{i=1}^n \sum_{j=1}^m a_i b_j E(X_i Y_j) -     
+        \sum_{i=1}^n \sum_{j=1}^m a_i b_j E(X_i) \cdot E( Y_j)
+    
+
+\]
+
+    \[
+        = \sum_{i=1}^n \sum_{j=1}^m a_i b_j (E(X_i Y_j) - E(X_i) \cdot E( Y_j))
+
+    \]
+    \[
+    \sum_{i=1}^n \sum_{j=1}^m a_i b_j \text{Cov}(X_i, Y_j)
+    \]
+\end{proof}
+\textbf{Part : iii}
+\begin{proof}
+
+
+\[
+\text{Var} \left( \sum_{i=1}^n a_i X_i \right) 
+\] 
+\[
+= \text{Cov} \left( \sum_{i=1}^n a_i X_i, \sum_{i=1}^n a_i X_i \right)
+\]
+
+\[
+= \sum_{i=1}^n \sum_{j=1}^n a_i b_j \text{Cov}(X_i, X_j)
+\]
+\[
+= \sum_{\substack{i=j \\ i =1}}^n a_i^2 \text{Cov}(X_i, X_j) + \sum_{i \neq j}^n a_ia_j \text{Cov} (X_i,X_j)
+\]
+\[
+= \sum_{\substack{i=1}}^n a_i^2 \text{Var}(X_i) + \sum_{1 \leq i \leq j \leq n}^n a_ia_j \text{Cov} (X_i,X_j) +  \sum_{1 \leq j \leq i \leq n}^n a_ia_j \text{Cov} (X_i,X_j) \quad \dots (i)
+\]
+But, notice that 
+\[
+\sum_{1 \leq j \leq i \leq n}^n a_ia_j \text{Cov} (X_i,X_j) = \sum_{1 \leq i \leq j \leq n}^n a_ia_j \text{Cov} (X_j,X_i) = \sum_{1 \leq i \leq j \leq n}^n a_ia_j \text{Cov} (X_i,X_j)
+\]
+$\dots$ as covariance is commutable. So eq. (i), becomes
+\[
+\text{Var} \left( \sum_{i=1}^n a_i X_i \right) = \sum_{\substack{i=1}}^n a_i^2 \text{Var}(X_i) + \sum_{1 \leq i \leq j \leq n}^n a_ia_j \text{Cov} (X_i,X_j) + \sum_{1 \leq i \leq j \leq n}^n a_ia_j \text{Cov} (X_i,X_j)
+\]
+
+
+\[
+= \sum_{i=1}^n a_i^2 \text{Var}(X_i) + 2 \sum_{1 < i < j < n} a_ia_j\text{Cov}(X_i, X_j)
+\]
+    
+\end{proof}
+
+\end{document}
+
+
