@@ -109,5 +109,5 @@ with open('fitting_results.txt', 'w') as f:
     f.write(f"k_a = {k_a:.6f} ± {k_a_error:.6f}\n")
     f.write(f"Pearson R² = {r_value**2:.6f}\n")
     f.write(f"p-value = {p_value:.6e}\n")
-
+plt.savefig('fig_expt7.png', dpi=800)
 plt.show()
