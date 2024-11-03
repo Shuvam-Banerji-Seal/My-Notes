@@ -1,7 +1,7 @@
 Results of the fitting:
-Slope = -0.006649 ± 0.001376
-Intercept (1/G_o) = 0.015516 ± 0.001376
-G_o = 64.447592 microsimen
-k_a = -0.036212
-Pearson R² = 0.642188
-p-value = 3.285143e-04
+Slope = 414228.321848 ± 3559.521014
+Intercept = 2.923183 ± 0.421642
+A_o = 0.342093 ± 0.049344 microsimen
+k_a = 0.000021 ± 0.000006
+Pearson R² = 0.999041
+p-value = 5.232408e-21
