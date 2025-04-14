@@ -15,7 +15,7 @@ int peek();
 int isEmpty();
 void display();
 
-main()
+int main()
 {
 	int choice,item;
 	while(1)

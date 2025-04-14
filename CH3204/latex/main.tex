@@ -1,0 +1,358 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Beamer Presentation
+% Course: CH3204 Organic Synthesis
+% Title: Making Raspberry Ketone Analogue
+% Theme: Metropolis (Dark)
+% Version: 2 (Fixes applied based on error log)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{beamer}
+
+%------------------------------------------------------------
+% Theme and Appearance
+%------------------------------------------------------------
+\usetheme{metropolis} % Use the Metropolis theme (modern, dark-friendly)
+\usecolortheme{default} % Or choose a specific color theme if needed
+
+%------------------------------------------------------------
+% Packages
+%------------------------------------------------------------
+\usepackage[utf8]{inputenc}      % Input encoding
+\usepackage[T1]{fontenc}         % Font encoding
+\usepackage{lmodern}             % Use Latin Modern fonts
+\usepackage{graphicx}            % For including images (if needed)
+\usepackage{booktabs}            % For better tables
+\usepackage{chemfig}             % For drawing chemical structures
+\usepackage{amsmath}             % For math formulas
+\usepackage{textcomp}            % For symbols like degrees Celsius
+
+% Biblatex for References
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
+\addbibresource{references.bib} % Name of your .bib file
+
+%------------------------------------------------------------
+% Presentation Information
+%------------------------------------------------------------
+\title{Making Raspberry Ketone Analogue}
+\subtitle{Synthesis and Analysis of 4-(4-methoxyphenyl)butan-2-one}
+\author{Your Name / Group Name}
+\institute{Department of Chemistry \\ Course: CH3204 Organic Synthesis}
+\date{\today}
+
+%------------------------------------------------------------
+% Start of Document
+%------------------------------------------------------------
+\begin{document}
+
+%------------------------------------------------------------
+% Title Frame
+%------------------------------------------------------------
+\begin{frame}[plain] % Plain frame for title page
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------
+% Outline Frame (Optional)
+%------------------------------------------------------------
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------
+% Introduction Section
+%------------------------------------------------------------
+\section{Introduction}
+
+\begin{frame}{Motivation: Raspberry Ketone}
+    \begin{itemize}
+        \item Raspberry Ketone (4-(4-hydroxyphenyl)butan-2-one) is the primary aroma compound in red raspberries \cite{RaspberryKetoneWiki}.
+        \item Widely used in flavor and fragrance industries.
+        \item Potential nutraceutical properties (anti-obesity, antioxidant) \cite{PharmacologicalExplorationRK}.
+        \item Structure:
+            \begin{center}
+                \chemfig{[:30]**6(---(-[:90]OH)-=-(-[:330]CH_2CH_2C(=[:270]O)CH_3)-=)}
+                \vspace{0.5em} % Add some space
+                \textit{Raspberry Ketone} % Use text instead of \caption
+            \end{center}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Project Goal: Synthesizing an Analogue}
+    \begin{itemize}
+        \item Goal: Synthesize an analogue of Raspberry Ketone.
+        \item Modification: Replace the phenolic -OH group with a methoxy (-OCH$_3$) group.
+        \item Target Molecule: 4-(4-methoxyphenyl)butan-2-one (Anisylacetone).
+            \begin{center}
+                \chemfig{[:30]**6(---(-[:90]OCH_3)-=-(-[:330]CH_2CH_2C(=[:270]O)CH_3)-=)}
+                 \vspace{0.5em} % Add some space
+                 \textit{Target Analogue: Anisylacetone} % Use text instead of \caption
+            \end{center}
+        \item Starting Material Change: Use 4-methoxybenzaldehyde instead of 4-hydroxybenzaldehyde (due to availability).
+        \item Aim: Investigate the synthesis and compare the properties of the analogue to Raspberry Ketone.
+    \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------
+% Literature Review Section
+%------------------------------------------------------------
+\section{Literature Review}
+
+\begin{frame}{Standard Synthesis of Raspberry Ketone}
+    \frametitle{Established Route: Aldol Condensation + Hydrogenation}
+    \begin{enumerate}
+        \item \textbf{Step 1: Aldol Condensation} \cite{OnePotSynthesisRK, SynthesisRKHydrogenation}
+            \begin{itemize}
+                \item 4-hydroxybenzaldehyde + Acetone $\xrightarrow{\text{Base (e.g., NaOH)}}$ 4-(4-hydroxyphenyl)-3-buten-2-one (PHBA)
+                \item Intermediate: $\alpha,\beta$-unsaturated ketone.
+            \end{itemize}
+            \begin{center} % Center the scheme
+            \schemestart
+                \chemfig{**6(---(-[:90]OH)-=-(-[:330]CHO)-=)}
+                \+
+                \chemfig{CH_3C(=[:90]O)CH_3}
+                \arrow{->[Base]}[,1.5]
+                \chemfig{**6(---(-[:90]OH)-=-(-[:330]CH=CHC(=[:270]O)CH_3)-=)}
+            \schemestop
+            \end{center}
+        \item \textbf{Step 2: Catalytic Hydrogenation} \cite{SynthesisRKHydrogenation, SynthesisRKNickelBoride}
+            \begin{itemize}
+                \item PHBA $\xrightarrow{\text{H}_2\text{, Catalyst (e.g., Pd, Ni, Rh)}}$ Raspberry Ketone
+                \item Reduction of the C=C double bond.
+            \end{itemize}
+            \begin{center} % Center the scheme
+            \schemestart
+                 \chemfig{**6(---(-[:90]OH)-=-(-[:330]CH=CHC(=[:270]O)CH_3)-=)}
+                 \arrow{->[$H_2$, Catalyst]}[,1.5] % Use math mode for H_2
+                 \chemfig{**6(---(-[:90]OH)-=-(-[:330]CH_2CH_2C(=[:270]O)CH_3)-=)}
+            \schemestop
+            \end{center}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Starting Material: 4-Methoxybenzaldehyde}
+    \frametitle{Properties of p-Anisaldehyde (C$_8$H$_8$O$_2$)}
+    \begin{itemize}
+        \item Common Name: p-Anisaldehyde \cite{AnisaldehydeFisherSci}.
+        \item Appearance: Colorless to pale yellow liquid.
+        \item Odor: Sweet, anise-like \cite{AnisaldehydeHMDB}.
+        \item Key Physical Properties:
+            \begin{itemize}
+                \item MW: 136.15 g/mol
+                \item MP: -1 to 2 \textdegree C \cite{AnisaldehydeVoloChem}
+                \item BP: 247-249 \textdegree C \cite{AnisaldehydeFisherSci}
+                \item Density: ~1.12 g/cm$^3$
+                \item Solubility: Immiscible in water, soluble in organic solvents \cite{AnisaldehydeFisherSci}.
+            \end{itemize}
+        \item Structure:
+            \begin{center}
+                \chemfig{**6(---(-[:90]OCH_3)-=-(-[:330]CHO)-=)}
+            \end{center}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Starting Material: 4-Methoxybenzaldehyde (Spectroscopy)}
+    \frametitle{Expected Spectroscopic Data \cite{AnisaldehydeIRSpec, AnisaldehydeNMRSpec, AnisaldehydeHRMS}}
+    \begin{columns}[T] % Split frame into columns
+        \begin{column}{0.5\textwidth}
+            \textbf{IR (cm$^{-1}$):}
+            \begin{itemize}
+                \item ~1700-1725 (C=O stretch, aldehyde)
+                \item ~2700-2800 (C-H stretch, aldehyde)
+                \item ~1500-1600 (C=C stretch, aromatic)
+                \item ~1000-1300 (C-O stretch, methoxy)
+            \end{itemize}
+            \vspace{1em}
+            \textbf{HRMS:}
+             \begin{itemize}
+                \item Expected [M+H]$^+$: 137.0597 Da
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \textbf{$^1$H NMR (ppm):}
+            \begin{itemize}
+                \item ~9.8-10.0 (s, 1H, CHO)
+                \item ~6.8-7.9 (m, 4H, Ar-H)
+                \item ~3.8-3.9 (s, 3H, OCH$_3$)
+            \end{itemize}
+            \vspace{1em}
+            \textbf{$^{13}$C NMR (ppm):}
+            \begin{itemize}
+                \item ~190-192 (CHO)
+                \item ~114-165 (Ar-C)
+                \item ~55-56 (OCH$_3$)
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Proposed Synthesis of Analogue}
+    \frametitle{Adapting the Established Route \cite{SynthesisRKNickelBoride, AnisylacetoneChemBook}}
+    \begin{enumerate}
+        \item \textbf{Step 1: Aldol Condensation}
+            \begin{itemize}
+                \item 4-methoxybenzaldehyde + Acetone $\xrightarrow{\text{Base}}$ 4-(4-methoxyphenyl)-3-buten-2-one (Anisylidene acetone)
+            \end{itemize}
+            \begin{center} % Center the scheme
+            \schemestart
+                \chemfig{**6(---(-[:90]OCH_3)-=-(-[:330]CHO)-=)}
+                \+
+                \chemfig{CH_3C(=[:90]O)CH_3}
+                \arrow{->[Base]}[,1.5]
+                \chemfig{**6(---(-[:90]OCH_3)-=-(-[:330]CH=CHC(=[:270]O)CH_3)-=)}
+            \schemestop
+            \end{center}
+        \item \textbf{Step 2: Catalytic Hydrogenation}
+            \begin{itemize}
+                \item Anisylidene acetone $\xrightarrow{\text{H}_2\text{, Catalyst}}$ 4-(4-methoxyphenyl)butan-2-one (Anisylacetone)
+            \end{itemize}
+            \begin{center} % Center the scheme
+            \schemestart
+                 \chemfig{**6(---(-[:90]OCH_3)-=-(-[:330]CH=CHC(=[:270]O)CH_3)-=)}
+                 \arrow{->[$H_2$, Catalyst]}[,1.5] % Use math mode for H_2
+                 \chemfig{**6(---(-[:90]OCH_3)-=-(-[:330]CH_2CH_2C(=[:270]O)CH_3)-=)}
+            \schemestop
+            \end{center}
+    \end{enumerate}
+    This two-step sequence is expected to be the most direct route.
+\end{frame}
+
+%------------------------------------------------------------
+% Experimental Section (FILL THIS IN WITH YOUR DETAILS)
+%------------------------------------------------------------
+\section{Experimental Procedure}
+
+\begin{frame}{Step 1: Aldol Condensation - Procedure}
+    \frametitle{Synthesis of 4-(4-methoxyphenyl)-3-buten-2-one}
+    \begin{alertblock}{Your Experimental Details Needed}
+        Describe the exact procedure you followed:
+        \begin{itemize}
+            \item Reagents used (4-methoxybenzaldehyde, acetone, base - specify type and concentration).
+            \item Amounts/Moles of each reagent.
+            \item Solvent used (if any).
+            \item Reaction conditions (temperature, time).
+            \item Observations during the reaction (color changes, precipitation).
+            \item Work-up procedure (quenching, extraction, washing, drying).
+            \item Isolation/Purification method (e.g., recrystallization, chromatography - specify details).
+        \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Step 2: Hydrogenation - Procedure}
+    \frametitle{Synthesis of 4-(4-methoxyphenyl)butan-2-one}
+     \begin{alertblock}{Your Experimental Details Needed}
+        Describe the exact procedure you followed:
+        \begin{itemize}
+            \item Starting material (isolated intermediate or one-pot?).
+            \item Hydrogenation catalyst used (e.g., Pd/C, Ni$_2$B, Raney Ni - specify amount).
+            \item Hydrogen source (H$_2$ gas pressure, transfer hydrogenation?).
+            \item Solvent used.
+            \item Reaction conditions (temperature, time, pressure).
+            \item Monitoring the reaction (e.g., TLC, GC).
+            \item Work-up procedure (catalyst filtration, solvent removal).
+            \item Purification method (e.g., distillation, chromatography - specify details).
+        \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+%------------------------------------------------------------
+% Results and Analysis Section (FILL THIS IN)
+%------------------------------------------------------------
+\section{Results and Analysis}
+
+\begin{frame}{Analysis of Intermediate (Anisylidene acetone)}
+    \frametitle{Characterization of 4-(4-methoxyphenyl)-3-buten-2-one}
+     \begin{alertblock}{Your Results Needed}
+        Present the data obtained for the intermediate (if isolated/analyzed):
+        \begin{itemize}
+            \item Appearance (color, physical state).
+            \item Yield (mass, percentage).
+            \item Melting Point (if solid, compare to literature if available).
+            \item TLC data (Rf value, solvent system).
+            \item IR Spectrum: Assign key peaks (C=O, C=C, C-O). Compare to literature/expected.
+            \item $^1$H NMR Spectrum: Assign key peaks (vinyl H, Ar-H, OCH$_3$, CH$_3$). Compare to literature/expected.
+            \item $^{13}$C NMR Spectrum (if obtained): Assign key peaks.
+            \item Other analyses performed?
+        \end{itemize}
+     \end{alertblock}
+     \textit{Note: Literature MP for Anisylidene acetone varies, often around 72-75 \textdegree C.}
+\end{frame}
+
+\begin{frame}{Analysis of Final Product (Anisylacetone)}
+    \frametitle{Characterization of 4-(4-methoxyphenyl)butan-2-one}
+     \begin{alertblock}{Your Results Needed}
+        Present the data obtained for the final product:
+        \begin{itemize}
+            \item Appearance (color, physical state - likely an oil).
+            \item Yield (mass, overall percentage yield from starting aldehyde).
+            \item Melting Point (Literature: 8-10 \textdegree C \cite{AnisylacetoneChemBook} - likely liquid at room temp).
+            \item Boiling Point (if distilled, compare to literature: ~270 \textdegree C atm \cite{AnisylacetoneChemImpex}, lower under vacuum).
+            \item TLC data (Rf value, solvent system).
+            \item IR Spectrum: Assign key peaks (C=O ketone, C-O ether). Compare to expected (absence of C=C, presence of C-O).
+            \item $^1$H NMR Spectrum: Assign key peaks (CH$_2$, Ar-H, OCH$_3$, CH$_3$). Compare to expected.
+            \item $^{13}$C NMR Spectrum (if obtained): Assign key peaks. Compare to expected.
+            \item GC-MS / HRMS data (if obtained): Confirm mass, purity.
+        \end{itemize}
+     \end{alertblock}
+\end{frame}
+
+\begin{frame}{Comparison: Analogue vs. Raspberry Ketone}
+    \frametitle{Spectroscopic and Physical Property Differences}
+    Based on literature \cite{SynthesisRKNickelBoride, AnisylacetoneChemBook, AnisylacetoneChemImpex, RKPropertiesChemImpex} and expected data:
+    \begin{table}[h]
+        \centering
+        \caption{Comparison of Key Properties}
+        \begin{tabular}{lcc}
+            \toprule
+            Property & Raspberry Ketone & Anisylacetone (Analogue) \\
+            \midrule
+            Structure & Ar-OH & Ar-OCH$_3$ \\ % Simplified representation
+                      & (Ar = p-C$_6$H$_4$CH$_2$CH$_2$COCH$_3$) & (Ar = p-C$_6$H$_4$CH$_2$CH$_2$COCH$_3$) \\ % Define Ar group
+            MW (g/mol) & 164.20 & 178.23 \\
+            MP (\textdegree C) & 82-83 & 8-10 (oil at RT) \\
+            IR: O-H stretch & Present (~3370 cm$^{-1}$) & Absent \\
+            IR: C-O-C stretch & Absent & Present (~1000-1300 cm$^{-1}$) \\
+            $^1$H NMR: Phenolic OH & Present (~6-7 ppm) & Absent \\
+            $^1$H NMR: Methoxy CH$_3$ & Absent & Present (~3.8 ppm) \\
+            Odor & Raspberry-like & Sweet, floral, fruity \\
+            \bottomrule
+        \end{tabular}
+        \vspace{1em}
+        \textit{Our experimental results should be compared to these expected values.}
+    \end{table}
+\end{frame}
+
+%------------------------------------------------------------
+% Conclusion Section
+%------------------------------------------------------------
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+     \begin{alertblock}{Summarize Your Findings}
+        Conclude the presentation:
+        \begin{itemize}
+            \item Briefly restate the goal (synthesize Raspberry Ketone analogue).
+            \item Summarize the synthetic route used (Aldol + Hydrogenation with 4-methoxybenzaldehyde).
+            \item State whether the synthesis was successful based on your analytical data.
+            \item Mention the overall yield obtained.
+            \item Highlight key characterization results confirming the structure (mention specific IR, NMR evidence).
+            \item Briefly compare the properties of your synthesized analogue to literature values and to Raspberry Ketone (e.g., physical state difference due to H-bonding).
+            \item Mention any challenges encountered during the synthesis or analysis.
+            \item Suggest potential future work (if any).
+        \end{itemize}
+     \end{alertblock}
+\end{frame}
+
+%------------------------------------------------------------
+% References Section
+%------------------------------------------------------------
+\section*{References} % Use section* for unnumbered section in ToC
+
+\begin{frame}[allowframebreaks]{References} % allowframebreaks allows list to span multiple slides
+    \printbibliography
+\end{frame}
+
+%------------------------------------------------------------
+% End of Document
+%------------------------------------------------------------
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
