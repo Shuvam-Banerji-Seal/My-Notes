@@ -1,3 +1,42 @@
 s1 = 12 38
 current= 40 
 s2 = 49 73 79 60 55 34 40:
+
+
+
+
+currentlevel = 79 60 40 
+print = 49 73 34 12 40
+(print)node temp= 40
+nextlevel = 13
+left_to_right flag = 1
+
+count + count = 2
+count = 1
+
+ret = 
+
+
+
+
+
+
+q->count = 4
+max_width= 4
+levelwidth= 4
+i = 0
+q = 12 40 60 79
+current = 73
+
+
+
+
+
+
+
+
+
+
+
+
+

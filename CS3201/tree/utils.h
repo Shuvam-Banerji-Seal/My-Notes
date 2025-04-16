@@ -29,7 +29,7 @@ typedef struct Queue {
   int front;
   int rear;
   int count;
-  int count; //Number of item currently in the Queue
+  // int count; //Number of item currently in the Queue
 }Queue;
 
 Queue *createQueue();
