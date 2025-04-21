@@ -15,7 +15,7 @@ except ImportError:
     print("Install it using: pip install matplotlib")
 
 # --- Simulation Parameters ---
-GRID_SIZE = 50        # Size of the simulation grid (GRID_SIZE x GRID_SIZE)
+GRID_SIZE = 100        # Size of the simulation grid (GRID_SIZE x GRID_SIZE)
 CORE_RADIUS = 15      # Characteristic radius defining the core region's density falloff
 SURFACE_THICKNESS = 5 # How far from the core radius Ru(1) can be placed
 NUM_RU1 = 30          # Number of Ru(1) complexes (surface)
