@@ -1,0 +1,42 @@
+graph TD
+    subgraph "General Principle (Flowchart)"
+        direction LR
+        A[Start] --> B[Set depth_limit = 0];
+        B --> C{Run Depth-Limited Search (DLS)};
+        C --> D{Solution Found?};
+        D -- Yes --> E[End: Solution Found!];
+        D -- No --> F[Increment depth_limit];
+        F --> C;
+
+        subgraph "Depth-Limited Search (DLS) Logic"
+            direction LR
+            DLS_A[Start DLS with current limit] --> DLS_B{Use Stack, like DFS};
+            DLS_B --> DLS_C{Is current_depth < depth_limit?};
+            DLS_C -- Yes --> DLS_D[Generate Neighbors];
+            DLS_C -- No --> DLS_E[Stop this path, backtrack];
+            DLS_D --> DLS_B;
+        end
+    end
+
+    subgraph "Water Jug Example (Iterative Process)"
+        direction TB
+        subgraph "Run 1: Limit = 1 (No Goal)"
+            S1["(0,0)"] --> N1["(3,0)"];
+            S1 --> N2["(0,4)"];
+        end
+        
+        subgraph "Run 2: Limit = 2 (No Goal)"
+            S2["(0,0)"] --> L2N1["(3,0)"] --> L2N2["(0,3)"];
+        end
+
+        subgraph "Run 4: Limit = 4 (Goal Found!)"
+            S4["(0,0)"] --> L4N1["(3,0)"] --> L4N2["(0,3)"] --> L4N3["(3,3)"] --> G["(2,4) <br/> **Goal!**"];
+        end
+
+        linkStyle 8,9,10,11 stroke-width:3px, stroke:purple, fill:none;
+        
+        classDef path fill:#f3e6ff,stroke:#6a0dad,stroke-width:2px;
+        class S4,L4N1,L4N2,L4N3,G path;
+    end
+// [MermaidChart: 6efd55e2-e17f-4f02-920f-b58a65503e53]
+

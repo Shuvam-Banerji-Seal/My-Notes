@@ -1,0 +1,33 @@
+graph TD
+    subgraph "General Principle (Flowchart)"
+        direction LR
+        A[Start] --> B{Initialize Stack & Visited List};
+        B --> C[Add Start Node (0,0) to Stack];
+        C --> D{Stack is Empty?};
+        D -- No --> E[Pop State];
+        D -- Yes --> F[End: No Solution];
+        E --> G{Is it Goal State?};
+        G -- Yes --> H[End: Solution Found!];
+        G -- No --> I[Generate All Neighbors];
+        I --> J{For each Neighbor};
+        J -- More Neighbors --> K{Already Visited?};
+        K -- No --> L[Add to Visited List];
+        L --> M[Add to TOP of Stack];
+        M --> J;
+        K -- Yes --> J;
+        J -- No More Neighbors --> D;
+    end
+
+    subgraph "Water Jug Example (A Possible Path)"
+        direction TB
+        S["(0,0)"] --> S1["(3,0)"] --> S2["(3,4)"] --> S3["(0,4)"] --> S4["(3,1)"] --> S5["(0,1)"] --> S6["(1,0)"] --> S7["(1,4)"] --> G["(3,2) <br/> **Goal!**"];
+        
+        S2 --> B1["... (other paths not taken first)"];
+        S3 --> B2["..."];
+
+        linkStyle 0,1,2,3,4,5,6,7 stroke-width:3px, stroke:blue, fill:none;
+        linkStyle 8,9 stroke-width:1px, stroke:gray, fill:none, stroke-dasharray: 5 5;
+
+        classDef path fill:#e6f7ff,stroke:#0077c2,stroke-width:2px;
+        class S,S1,S2,S3,S4,S5,S6,S7,G path;
+    end
