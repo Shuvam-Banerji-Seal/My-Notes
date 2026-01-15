@@ -1,0 +1,40 @@
+.lecture-viewer {
+    padding: 20px;
+}
+
+.lecture-meta {
+    color: #666;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.topics-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.topic-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.topic-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.topic-card p {
+    color: #555;
+    line-height: 1.6;
+}
